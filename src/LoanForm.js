@@ -2,6 +2,7 @@
 import "./FormStyles.css" 
 import Modle from "./Modal"
 import { useState } from "react"
+import MyComponent from "./MyComponent"
 export default function LoanForm(){
     const [errorMessage , setErrorMessage] = useState(null)
     const[showModal, setShowModal] = useState(false)
@@ -39,10 +40,13 @@ export default function LoanForm(){
         <input value={loanInputs.name} onChange={(event)=>{
             setLonaInputs({...loanInputs , name : event.target.value})
         }} ></input>
-        <label>Phone Number:</label>
+        <MyComponent value={loanInputs.phoneNumber} 
+       handleChange={ setLonaInputs}
+       currentInputs={loanInputs}/>
+        {/* <label>Phone Number:</label>
         <input value={loanInputs.phoneNumber} onChange={(event)=>{
             setLonaInputs({...loanInputs , phoneNumber : event.target.value})
-        }} ></input>
+        }} ></input> */}
         <label>Age:</label>
         <input value={loanInputs.age} onChange={(event)=>{
             setLonaInputs({...loanInputs , age : event.target.value})
