@@ -32,25 +32,41 @@ export default function LoanForm(){
         }
     }
     const btnIsDisabled = loanInputs.name === "" || loanInputs.age === "" || loanInputs.phoneNumber === "";
+    // هنا الاب هو من حدث الحالة الخاصة به ليس الولد 
+    function handlePhoneNumberInputChange(value){
+        setLonaInputs({...loanInputs , phoneNumber :value})
+    }
+    function handleNameInputChange(value){
+        setLonaInputs({...loanInputs ,name:value})
+    }
+    function handleAgeInputChange(value){
+        setLonaInputs({...loanInputs ,age:value})
+    }
     return(<div onClick={handleDivClick} className="flex" style={{flexDirection:"column"}}>
     <form  id="loan-form"className="flex" style={{flexDirection:"column"}}>
         <h1>Requesting a Loan </h1>
        <hr/>
-        <label>Name:</label>
+        {/* <label>Name:</label>
         <input value={loanInputs.name} onChange={(event)=>{
             setLonaInputs({...loanInputs , name : event.target.value})
-        }} ></input>
-        <MyComponent value={loanInputs.phoneNumber} 
-       handleChange={ setLonaInputs}
-       currentInputs={loanInputs}/>
+        }} ></input> */}
+        <MyComponent inputName="Name : " value={loanInputs.name} 
+       handleChange={ handleNameInputChange}
+      />
+          <MyComponent inputName="Phone Number : " value={loanInputs.phoneNumber} 
+       handleChange={ handlePhoneNumberInputChange}
+      />
         {/* <label>Phone Number:</label>
         <input value={loanInputs.phoneNumber} onChange={(event)=>{
             setLonaInputs({...loanInputs , phoneNumber : event.target.value})
         }} ></input> */}
-        <label>Age:</label>
+             <MyComponent inputName="Phone Number : " value={loanInputs.age} 
+       handleChange={ handleAgeInputChange}
+      />
+        {/* <label>Age:</label>
         <input value={loanInputs.age} onChange={(event)=>{
             setLonaInputs({...loanInputs , age : event.target.value})
-        }} ></input>
+        }} ></input> */}
         <label style={{marginTop:"30px"}}>Are you an employee?</label> <br></br>
         <input type="checkbox" value={loanInputs.isemployee} onChange={(event)=>{
             setLonaInputs({...loanInputs , isemployee : event.target.checked})
