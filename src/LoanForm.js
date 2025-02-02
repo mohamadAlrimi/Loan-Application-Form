@@ -3,6 +3,8 @@ import "./FormStyles.css"
 import Modle from "./Modal"
 import { useState } from "react"
 export default function LoanForm(){
+    const [errorMessage , setErrorMessage] = useState(null)
+    const[showModal, setShowModal] = useState(false)
     const[loanInputs,setLonaInputs   ]=useState({
         name:"",
         phoneNumber:"",
@@ -12,11 +14,24 @@ export default function LoanForm(){
     })
     function handlFormSubmit(event){
         event.preventDefault();
-        alert("hello")
+        setErrorMessage(null)
+        const {age , phoneNumber} = loanInputs;
+        if(age <18 || age > 100){
+            setErrorMessage ("The age is not allowed");
+        } else if (phoneNumber.length < 10 || phoneNumber.length >12){
+            setErrorMessage("Phone Number Is Incorrect")
+        }
+
+       setShowModal(true)
 
     }
+    function handleDivClick(){
+        if(showModal){
+            setShowModal(false)
+        }
+    }
     const btnIsDisabled = loanInputs.name === "" || loanInputs.age === "" || loanInputs.phoneNumber === "";
-    return(<div className="flex" style={{flexDirection:"column"}}>
+    return(<div onClick={handleDivClick} className="flex" style={{flexDirection:"column"}}>
     <form  id="loan-form"className="flex" style={{flexDirection:"column"}}>
         <h1>Requesting a Loan </h1>
        <hr/>
@@ -47,6 +62,6 @@ export default function LoanForm(){
         <button onClick={handlFormSubmit} className={btnIsDisabled ? "disabled" : ""} disabled={btnIsDisabled} id="submit-loan-btn">Submit</button>
  
         </form>
-        {/* <Modle/> */}
+        <Modle errorMessage={errorMessage} isVisible={showModal} />
         </div>)
 }
