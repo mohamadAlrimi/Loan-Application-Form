@@ -1,9 +1,10 @@
-export default function MyComponent( {value , handleChange ,inputName }){
+import MyInput from "./MyInput"
+export default function MyComponent( {valueComponent , handleChangeComponent ,inputNameComponent }){
     return(<>
-     <label>{inputName}</label>
-        <input value={value} onChange={(event)=>{
-            handleChange( event.target.value)
-        }} ></input>
+    <h1>This is the header of the component</h1>
+    <MyInput inputName= {inputNameComponent} value={valueComponent} 
+       handleChange={ handleChangeComponent}/>
+    <h1>This is the footer of the component</h1>
     
     </>)
 }

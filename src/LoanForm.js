@@ -50,18 +50,18 @@ export default function LoanForm(){
         <input value={loanInputs.name} onChange={(event)=>{
             setLonaInputs({...loanInputs , name : event.target.value})
         }} ></input> */}
-        <MyComponent inputName="Name : " value={loanInputs.name} 
-       handleChange={ handleNameInputChange}
+        <MyComponent inputNameComponent="Name : " valueComponent={loanInputs.name} 
+       handleChangeComponent={ handleNameInputChange}
       />
-          <MyComponent inputName="Phone Number : " value={loanInputs.phoneNumber} 
-       handleChange={ handlePhoneNumberInputChange}
+          <MyComponent inputNameComponent="Phone Number : " valueComponent={loanInputs.phoneNumber} 
+       handleChangeComponent={ handlePhoneNumberInputChange}
       />
         {/* <label>Phone Number:</label>
         <input value={loanInputs.phoneNumber} onChange={(event)=>{
             setLonaInputs({...loanInputs , phoneNumber : event.target.value})
         }} ></input> */}
-             <MyComponent inputName="Phone Number : " value={loanInputs.age} 
-       handleChange={ handleAgeInputChange}
+             <MyComponent inputNameComponent="Phone Number : " valueComponent={loanInputs.age} 
+       handleChangeComponent={ handleAgeInputChange}
       />
         {/* <label>Age:</label>
         <input value={loanInputs.age} onChange={(event)=>{
