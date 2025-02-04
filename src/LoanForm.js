@@ -51,19 +51,32 @@ export default function LoanForm(){
         <input value={loanInputs.name} onChange={(event)=>{
             setLonaInputs({...loanInputs , name : event.target.value})
         }} ></input> */}
-        <MyComponent inputNameComponent="Name : " valueComponent={loanInputs.name} 
-       handleChangeComponent={ handleNameInputChange}
-      />
-          <MyComponent inputNameComponent="Phone Number : " valueComponent={loanInputs.phoneNumber} 
-       handleChangeComponent={ handlePhoneNumberInputChange}
-      />
+        <LoanInputContext.Provider value={{value:loanInputs.name ,
+            handleChange:handleNameInputChange, 
+            labelTitle :"name"
+        
+        }}>
+        <MyComponent />
+        </LoanInputContext.Provider>
+
+        <LoanInputContext.Provider value={{
+            value:loanInputs.phoneNumber ,
+            handleChange:handlePhoneNumberInputChange,
+            labelTitle : "Phone Number"
+        }} >    <MyComponent 
+      /></LoanInputContext.Provider>
+      
         {/* <label>Phone Number:</label>
         <input value={loanInputs.phoneNumber} onChange={(event)=>{
             setLonaInputs({...loanInputs , phoneNumber : event.target.value})
         }} ></input> */}
-             <MyComponent inputNameComponent="Phone Number : " valueComponent={loanInputs.age} 
-       handleChangeComponent={ handleAgeInputChange}
-      />
+         <LoanInputContext.Provider value={{
+            value:loanInputs.age,
+            handleChange:handleAgeInputChange,
+            labelTitle : "Age"
+        }} >    <MyComponent 
+      /></LoanInputContext.Provider>
+       
         {/* <label>Age:</label>
         <input value={loanInputs.age} onChange={(event)=>{
             setLonaInputs({...loanInputs , age : event.target.value})

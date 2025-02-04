@@ -1,6 +1,9 @@
-export default function MyInput({value , handleChange ,inputName }){
-    return (<> <label>{inputName}</label>
-        <input value={value} onChange={(event)=>{
-            handleChange( event.target.value)
+import { useContext } from "react"
+import { LoanInputContext } from "./context/LoanFormInputContext"
+export default function MyInput(){
+    const inputContext = useContext(LoanInputContext)
+    return (<> <label>{inputContext.labelTitle}</label>
+        <input value={inputContext.value} onChange={(event)=>{
+            inputContext.handleChange( event.target.value)
         }} ></input></>)
 }
