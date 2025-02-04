@@ -3,6 +3,7 @@ import "./FormStyles.css"
 import Modle from "./Modal"
 import { useState } from "react"
 import MyComponent from "./MyComponent"
+import { LoanInputContext } from "./context/LoanFormInputContext"
 export default function LoanForm(){
     const [errorMessage , setErrorMessage] = useState(null)
     const[showModal, setShowModal] = useState(false)
