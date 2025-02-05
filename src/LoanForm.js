@@ -4,7 +4,10 @@ import Modle from "./Modal"
 import { useState } from "react"
 import MyComponent from "./MyComponent"
 import { LoanInputContext } from "./context/LoanFormInputContext"
+import { useContext } from "react"
+import { UserContext } from "./context/UserContext"
 export default function LoanForm(){
+    const userData = useContext(UserContext)
     const [errorMessage , setErrorMessage] = useState(null)
     const[showModal, setShowModal] = useState(false)
     const[loanInputs,setLonaInputs   ]=useState({
@@ -44,6 +47,7 @@ export default function LoanForm(){
         setLonaInputs({...loanInputs ,age:value})
     }
     return(<div onClick={handleDivClick} className="flex" style={{flexDirection:"column"}}>
+        <h1 style={{color:"white"}}> Hello : {userData.name}</h1>
     <form  id="loan-form"className="flex" style={{flexDirection:"column"}}>
         <h1>Requesting a Loan </h1>
        <hr/>
@@ -62,7 +66,7 @@ export default function LoanForm(){
         <LoanInputContext.Provider value={{
             value:loanInputs.phoneNumber ,
             handleChange:handlePhoneNumberInputChange,
-            labelTitle : "Phone Number"
+            labelTitle :  "Phone Number"
         }} >    <MyComponent 
       /></LoanInputContext.Provider>
       
