@@ -5,11 +5,11 @@ import { UserContext } from './context/UserContext';
 
 function App() {
   return (
-    <UserContext.Provider value={{username :"muhammed" , name:"muhammedrimi" , email:"muhammed12334.gmail.com"}}> <div className="App" style={{marginTop:"250px"}}>
+    <UserContext.Provider value={{username :"muhammed" , name:"Muhammed Elrimi" , email:"muhammed12334.gmail.com"}}> <div className="App" style={{marginTop:"250px"}}>
     <LoanForm/>
     
       
-    </div></UserContext.Provider>
+    </div> </UserContext.Provider>
    
   );
 }
