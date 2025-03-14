@@ -10,8 +10,6 @@ function App() {
     {/* this is commit  */}
     {/* this is commit  */}
     {/* this is commit  */}
-    {/* this is commit  */}
-    {/* this is commit  */}
   
       
     {/* this is commit  */}
